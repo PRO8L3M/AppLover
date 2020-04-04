@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    compileSdkVersion Versions.compileSDK
+    buildToolsVersion Versions.buildToolsVersion
+    defaultConfig {
+        applicationId ApplicationID.id
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Libraries.kotlin
+
+    implementation Libraries.appCompat
+    implementation Libraries.coreKtx
+    implementation Libraries.constraint
+
+    implementation Libraries.androidxLegacy
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation Libraries.junit
+    androidTestImplementation Libraries.extJunit
+    androidTestImplementation Libraries.espresso
+
+    implementation Libraries.navigationFragmentKtx
+    implementation Libraries.navigationKtx
+
+    debugImplementation Libraries.leakCanary
+
+    implementation Libraries.material
+
+    implementation Libraries.koin
+    implementation Libraries.koinExt
+    implementation Libraries.koinAndroid
+    implementation Libraries.koinAndroidxScope
+    implementation Libraries.koinAndroidxViewModel
+    implementation Libraries.koinAndroidxExt
+
+    implementation Libraries.corotuines
+
+    implementation Libraries.lifecycleExtensions
+    implementation Libraries.lifecycleLivedata
+    implementation Libraries.lifecycleRuntime
+    implementation Libraries.lifecycleRuntimeKtx
+    implementation Libraries.lifecycleViewmodel
+
+    implementation Libraries.timber
+
+    //Testing
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "com.squareup.okhttp3:mockwebserver:3.12.0"
+    testImplementation 'org.mockito:mockito-core:2.23.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

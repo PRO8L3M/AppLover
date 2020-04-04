@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/result_guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/result_applover_logo"
+        android:layout_width="@dimen/result_app_lover_logo_width_150dp"
+        android:layout_height="@dimen/result_app_lover_logo_height_150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/result_guideline_top"
+        app:srcCompat="@drawable/ic_applover_logo" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/my_progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="240dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="@dimen/margin_large_64dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="10"
+        android:progressTint="@color/result_progress_bar"
+        android:outlineProvider="background"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/result_applover_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f10b61</color>
+    <color name="colorPrimaryDark">#b70038</color>
+    <color name="colorAccent">#ff5b8e</color>
+    <color name="violet">#534C5F</color>
+    <color name="gray">#c4c4c4</color>
+    <color name="limeGreen">#1DE278</color>
+    <color name="red">#b30404</color>
+
+
+    <!-- Colors to use on views -->
+    <color name="background">@color/violet</color>
+    <color name="login_text">@android:color/white</color>
+    <color name="login_button">@color/limeGreen</color>
+    <color name="login_text_input_layout_stroke">@android:color/white</color>
+    <color name="login_text_input_layout_error">@color/red</color>
+    <color name="result_progress_bar">@color/limeGreen</color>
+
+</resources>

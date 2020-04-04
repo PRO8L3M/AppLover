@@ -1,0 +1,57 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/violet</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CommonHeadline" parent="Widget.AppCompat.TextView">
+        <item name="font">@font/roboto_regular</item>
+        <item name="android:textColor">@color/login_text</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="LoginHeadline" parent="CommonHeadline">
+        <item name="android:textSize">@dimen/text_size_20sp</item>
+    </style>
+
+    <style name="CommonTextInputLayoutStyle" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@drawable/login_text_input_layout_stroke_colors</item>
+        <item name="hintTextColor">@color/login_text</item>
+        <item name="android:textColorHint">@color/login_text</item>
+    </style>
+
+    <style name="CommonInputEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:maxLines">@integer/max_lines_1</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:maxLength">@integer/max_characters_64</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColor">@color/login_text</item>
+    </style>
+
+    <style name="LoginEmailTextInputLayoutStyle" parent="CommonTextInputLayoutStyle"/>
+
+    <style name="LoginPasswordTextInputLayoutStyle" parent="CommonTextInputLayoutStyle">
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleDrawable">@drawable/password_selector</item>
+        <item name="passwordToggleTint">@color/login_text</item>
+    </style>
+
+    <style name="LoginEmailInputEditTextStyle" parent="CommonInputEditTextStyle">
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="LoginPasswordInputEditTextStyle" parent="CommonInputEditTextStyle">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="CommonButtonStyle" parent="TextAppearance.AppCompat.Button">
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="LoginButtonSignInStyle" parent="CommonButtonStyle">
+        <item name="android:background">@drawable/login_button_shape</item>
+        <item name="android:textColor">@color/login_text</item>
+    </style>
+
+</resources>
