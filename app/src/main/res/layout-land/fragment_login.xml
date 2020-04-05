@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:focusableInTouchMode="true">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/login_guide_line_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/login_guide_line_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/login_guide_line_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/login_app_lover_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/login_guide_line_end"
+            app:layout_constraintStart_toStartOf="@+id/login_guide_line_start"
+            app:layout_constraintTop_toTopOf="@+id/login_guide_line_top"
+            app:srcCompat="@drawable/ic_applover_logo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/login_headline_login_text"
+            style="@style/LoginHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_16dp"
+            android:text="@string/login_headline"
+            app:layout_constraintEnd_toStartOf="@+id/login_guide_line_end"
+            app:layout_constraintStart_toStartOf="@+id/login_guide_line_start"
+            app:layout_constraintTop_toBottomOf="@+id/login_app_lover_logo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_email_text_input_layout"
+            style="@style/CommonTextInputLayoutStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_16dp"
+            android:hint="@string/login_email_hint"
+            app:layout_constraintEnd_toStartOf="@+id/login_guide_line_end"
+            app:layout_constraintStart_toStartOf="@+id/login_guide_line_start"
+            app:layout_constraintTop_toBottomOf="@+id/login_headline_login_text">
+
+            <com.applover.common.customs.CustomEditText
+                android:id="@+id/login_email_input_edit_text"
+                style="@style/LoginEmailInputEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_password_text_input_layout"
+            style="@style/LoginPasswordTextInputLayoutStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_16dp"
+            android:hint="@string/login_password_hint"
+            app:layout_constraintEnd_toStartOf="@+id/login_guide_line_end"
+            app:layout_constraintStart_toStartOf="@+id/login_guide_line_start"
+            app:layout_constraintTop_toBottomOf="@+id/login_email_text_input_layout">
+
+            <com.applover.common.customs.CustomEditText
+                android:id="@+id/login_password_input_edit_text"
+                style="@style/LoginPasswordInputEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <include
+            android:id="@+id/login_progress_button"
+            layout="@layout/progress_button_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_16dp"
+            android:layout_marginBottom="@dimen/margin_large_32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/login_guide_line_end"
+            app:layout_constraintStart_toStartOf="@+id/login_guide_line_start"
+            app:layout_constraintTop_toBottomOf="@+id/login_password_text_input_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

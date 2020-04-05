@@ -23,4 +23,7 @@
     <dimen name="result_progress_bar_width_240dp">240dp</dimen>
     <dimen name="progress_button_progress_bar_width_30dp">30dp</dimen>
     <dimen name="progress_button_progress_bar_height_30dp">30dp</dimen>
+    <dimen name="text_size_28sp">28sp</dimen>
+    <dimen name="margin_large_52dp">52dp</dimen>
+    <dimen name="result_status_text_width_240dp">240dp</dimen>
 </resources>

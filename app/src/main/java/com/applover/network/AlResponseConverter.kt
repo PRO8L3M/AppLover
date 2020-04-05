@@ -3,7 +3,7 @@ package com.applover.network
 import okhttp3.ResponseBody
 import retrofit2.Converter
 
-class KcResponseConverter<T>(
+class AlResponseConverter<T>(
     private val delegate: Converter<ResponseBody, T>
 ) : Converter<ResponseBody, T> {
 

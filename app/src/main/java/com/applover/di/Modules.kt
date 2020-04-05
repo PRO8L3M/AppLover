@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import com.applover.BuildConfig
 import com.applover.common.APP_LOVER_OK_HTTP
 import com.applover.common.APP_LOVER_RETROFIT
+import com.applover.network.AlResponseConverterFactory
 import com.applover.network.AppLoverApi
 import com.applover.network.ConnectionManagerImpl
 import com.applover.repository.LoginRepository
@@ -40,6 +41,7 @@ private val networkModule = module {
     single(named(APP_LOVER_RETROFIT)) {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(AlResponseConverterFactory)
             .baseUrl(BuildConfig.BASE_URL)
             .client(get(named(APP_LOVER_OK_HTTP)))
             .build()

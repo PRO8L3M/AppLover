@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.applover.R
-import com.applover.common.BUNDLE_LOGIN_STATUS
 import com.applover.common.BaseFragment
 import com.applover.common.STATUS_SUCCESS
-import com.applover.entity.LoginStatus
-import kotlinx.android.synthetic.main.fragment_result.result_login_status
+import kotlinx.android.synthetic.main.fragment_result.result_login_status_text
 
 class ResultFragment : BaseFragment() {
 
@@ -28,9 +26,7 @@ class ResultFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            /** It's unnecessary now but I left that to show one of many possible ways to pass data */
-            val loginStatus = it.getParcelable<LoginStatus>(BUNDLE_LOGIN_STATUS)
-            result_login_status.text = STATUS_SUCCESS
+            result_login_status_text.text = STATUS_SUCCESS
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {

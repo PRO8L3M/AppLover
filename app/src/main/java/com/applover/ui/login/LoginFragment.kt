@@ -15,7 +15,6 @@ import com.applover.common.DOUBLE_BACK_PRESSED_EXIT
 import com.applover.common.EMPTY_FIELD
 import com.applover.common.INPUT_FIELDS_ERROR
 import com.applover.common.WRONG_EMAIL_PATTERN
-import com.applover.common.customs.ProgressButton
 import com.applover.entity.LoginStatus
 import com.applover.entity.UserCredentials
 import com.applover.ext.checkDataValidationOnUnfocus
@@ -23,7 +22,13 @@ import com.applover.ext.snackBar
 import com.applover.ext.toast
 import com.applover.network.ResultObserver
 import com.applover.ui.LoginViewModel
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.login_progress_button
+import kotlinx.android.synthetic.main.fragment_login.login_email_input_edit_text
+import kotlinx.android.synthetic.main.fragment_login.login_password_input_edit_text
+import kotlinx.android.synthetic.main.fragment_login.login_password_text_input_layout
+import kotlinx.android.synthetic.main.fragment_login.login_email_text_input_layout
+import kotlinx.android.synthetic.main.progress_button_layout.progress_button_progress_bar
+import kotlinx.android.synthetic.main.progress_button_layout.progress_button_text_view
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,13 +37,7 @@ import java.lang.Exception
 class LoginFragment : BaseFragment() {
 
     private val viewModel: LoginViewModel by viewModel()
-
-    /**
-     * Because delay is set for 2 sec I don't save and restore this value (e.g. screen rotation).
-     * It's pointless due to rotation and click again which may take the same time.
-     * */
     private var isDoubleClicked = false
-    private lateinit var progressButton: ProgressButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,19 +51,27 @@ class LoginFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        progressButton = ProgressButton(view)
-
         viewModel.loginStatus.observe(viewLifecycleOwner, ResultObserver(::onSuccess, ::onFailure))
 
-        setUpClickListeners(view)
+        setUpClickListeners()
         handleInputEditTextErrors()
-        exitTheAppOnDoubleBackPressed()
+        onDoubleBackPressed()
     }
 
-    private fun setUpClickListeners(view: View) {
+    private fun setUpClickListeners() {
         login_progress_button.setOnClickListener {
             signIn()
         }
+    }
+
+    private fun activateProgressIndicator() {
+        progress_button_progress_bar.visibility = View.VISIBLE
+        progress_button_text_view.visibility = View.INVISIBLE
+    }
+
+    private fun deactivateProgressIndicator(){
+        progress_button_progress_bar.visibility = View.GONE
+        progress_button_text_view.visibility = View.VISIBLE
     }
 
     private fun handleInputEditTextErrors() {
@@ -73,14 +80,13 @@ class LoginFragment : BaseFragment() {
             { it.error = EMPTY_FIELD },
             { it.error = WRONG_EMAIL_PATTERN }
         )
-
         login_password_input_edit_text.checkDataValidationOnUnfocus(
             login_password_text_input_layout,
             { it.error = EMPTY_FIELD }, {}
         )
     }
 
-    private fun exitTheAppOnDoubleBackPressed() {
+    private fun onDoubleBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             if (isDoubleClicked) {
                 requireActivity().finish()
@@ -88,18 +94,19 @@ class LoginFragment : BaseFragment() {
             isDoubleClicked = true
             toast(DOUBLE_BACK_PRESSED_EXIT)
             lifecycleScope.launch {
-                delay(2000)
+                delay(resources.getInteger(R.integer.DOUBLE_BACK_PRESSED_DELAY).toLong())
                 isDoubleClicked = false
             }
         }
     }
 
-    private fun hasTextInputLayoutAnyErrors() =
-        login_email_text_input_layout.error == null && login_password_text_input_layout.error == null
+    private fun hasTextInputLayoutAnyErrors() = login_email_text_input_layout.error != null && login_password_text_input_layout.error != null
+
+    private fun hasEditTextBlank() = login_email_input_edit_text.text.isNullOrBlank() && login_password_input_edit_text.text.isNullOrBlank()
 
     private fun signIn() {
-        if (hasTextInputLayoutAnyErrors()) {
-            progressButton.buttonActivated()
+        if (!hasTextInputLayoutAnyErrors() && !hasEditTextBlank()) {
+            activateProgressIndicator()
             val email = login_email_input_edit_text.text.toString()
             val password = login_password_input_edit_text.text.toString()
             val userCredentials = UserCredentials(email, password)
@@ -115,8 +122,8 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun onFailure(exception: Exception) {
-        progressButton.actionFinished()
-        snackBar(exception.localizedMessage ?: "Error occured")
+        deactivateProgressIndicator()
+        snackBar(exception.localizedMessage ?: resources.getString(R.string.uknown_error))
     }
 
 }

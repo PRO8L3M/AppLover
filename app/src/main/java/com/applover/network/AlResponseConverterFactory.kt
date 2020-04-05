@@ -24,6 +24,6 @@ object AlResponseConverterFactory : Converter.Factory() {
             this, wrappedType, annotations
         ) as Converter<ResponseBody, LoginStatus>
 
-        return KcResponseConverter(delegate)
+        return AlResponseConverter(delegate)
     }
 }
