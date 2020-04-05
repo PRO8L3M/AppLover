@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/result_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
@@ -22,20 +22,16 @@
         app:layout_constraintTop_toTopOf="@+id/result_guideline_top"
         app:srcCompat="@drawable/ic_applover_logo" />
 
-    <androidx.core.widget.ContentLoadingProgressBar
-        android:id="@+id/my_progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/result_login_status"
         android:layout_width="240dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="@dimen/margin_large_64dp"
-        android:indeterminate="false"
-        android:max="100"
-        android:progress="10"
-        android:progressTint="@color/result_progress_bar"
-        android:outlineProvider="background"
-        android:progressDrawable="@drawable/custom_progress_bar"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:textSize="28sp"
+        android:textAlignment="center"
+        android:textColor="@color/login_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/result_applover_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/result_applover_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,4 +18,9 @@
 
     <dimen name="result_app_lover_logo_width_150dp">150dp</dimen>
     <dimen name="result_app_lover_logo_height_150dp">150dp</dimen>
+
+    <dimen name="result_progress_bar_height_15dp">15dp</dimen>
+    <dimen name="result_progress_bar_width_240dp">240dp</dimen>
+    <dimen name="progress_button_progress_bar_width_30dp">30dp</dimen>
+    <dimen name="progress_button_progress_bar_height_30dp">30dp</dimen>
 </resources>

@@ -7,7 +7,6 @@ import com.applover.R
 import com.google.android.material.textfield.TextInputEditText
 import com.applover.ext.hideKeyboard
 
-
 class CustomEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

@@ -18,9 +18,5 @@
         android:id="@+id/resultFragment"
         android:name="com.applover.ui.result.ResultFragment"
         android:label="ResultFragment"
-        tools:layout="@layout/fragment_result">
-        <action
-            android:id="@+id/action_resultFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_result"/>
 </navigation>

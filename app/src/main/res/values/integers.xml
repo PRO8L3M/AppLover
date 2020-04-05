@@ -2,4 +2,5 @@
 <resources>
     <integer name="max_lines_1">1</integer>
     <integer name="max_characters_64">64</integer>
+    <integer name="max_progress_100">100</integer>
 </resources>

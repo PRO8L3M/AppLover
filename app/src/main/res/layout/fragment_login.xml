@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_layout"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -49,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_app_lover_logo" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_text_input_layout"
+        android:id="@+id/login_email_text_input_layout"
         style="@style/CommonTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -75,7 +76,7 @@
         android:hint="@string/login_password_hint"
         app:layout_constraintEnd_toStartOf="@+id/login_guide_line_end"
         app:layout_constraintStart_toStartOf="@+id/login_guide_line_start"
-        app:layout_constraintTop_toBottomOf="@+id/login_text_input_layout">
+        app:layout_constraintTop_toBottomOf="@+id/login_email_text_input_layout">
 
         <com.applover.common.customs.CustomEditText
             android:id="@+id/login_password_input_edit_text"
@@ -84,13 +85,12 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_button_sign_in"
-        style="@style/LoginButtonSignInStyle"
+    <include
+        android:id="@+id/login_progress_button"
+        layout="@layout/progress_button_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium_16dp"
-        android:text="@string/login_button_text"
         app:layout_constraintEnd_toStartOf="@+id/login_guide_line_end"
         app:layout_constraintStart_toStartOf="@+id/login_guide_line_start"
         app:layout_constraintTop_toBottomOf="@+id/login_password_text_input_layout" />

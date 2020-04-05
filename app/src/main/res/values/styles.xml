@@ -54,4 +54,9 @@
         <item name="android:textColor">@color/login_text</item>
     </style>
 
+    <style name="custom_progress_bar_style" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:indeterminateTint">@color/result_progress_bar</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateTintMode">src_atop</item>
+    </style>
 </resources>

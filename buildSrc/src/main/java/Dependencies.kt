@@ -41,6 +41,11 @@ object Versions {
     val androidxLifecycle = "2.2.0"
 
     val legacy = "1.0.0"
+
+    val retrofit = "2.6.0"
+    val moshi = "2.4.0"
+    val moshiConverter = "2.6.0"
+    val okhttp = "4.1.0"
 }
 
 object Libraries {
@@ -75,10 +80,18 @@ object Libraries {
     val koinAndroidxScope = "org.koin:koin-androidx-scope:${Versions.koin}"
     val koinAndroidxViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
 
+    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val moshi = "com.squareup.retrofit2:converter-moshi:${Versions.moshi}"
+    val moshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.moshiConverter}"
+    val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+    val okhttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     val ktlint = "com.github.shyiko:ktlint:${Versions.ktlint}"
 
     val androidxLegacy = "androidx.legacy:legacy-support-v4:${Versions.legacy}"
+
+
 
 }
